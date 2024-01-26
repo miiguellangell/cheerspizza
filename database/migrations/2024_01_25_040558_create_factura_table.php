@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('factura', function (Blueprint $table) {
+       Schema::create('facturas', function (Blueprint $table) {
             $table->id();     
             $table->string('NumeroDeFactura');
             $table->String('IdCliente');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('factura');
+        Schema::dropIfExists('facturas');
     }
 };

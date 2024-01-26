@@ -31,10 +31,10 @@
                         @forelse ($facturas as $factura)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
-                            <td>{{ $factura->NumeroDeFactura }}</td>
+                           
                             <td>{{ $factura->NombreDeCliente }}</td>
                             <td>{{ $factura->ProductoPeq }}</td>
-                            <td>{{ $factura->Productomed }}</td>
+                            <td>{{ $factura->ProductoMed }}</td>
                             <td>{{ $factura->ProductoGra }}</td>
                             <td>{{ $factura->PuntosDeFactura }}</td>
 

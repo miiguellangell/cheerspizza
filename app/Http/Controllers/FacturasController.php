@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\View\View;
-use App\Models\Facturas;
+use App\Models\facturas;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreFacturasRequest;
 use App\Http\Requests\UpdateFacturasRequest;

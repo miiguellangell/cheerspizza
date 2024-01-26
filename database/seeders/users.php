@@ -1,11 +1,12 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\User;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class usuarios extends Seeder
+class users extends Seeder
 {
     /**
      * Run the database seeds.
@@ -37,13 +38,13 @@ class usuarios extends Seeder
             'name' => 'Maria Lopez',
             'email' => 'user@gmail.com',
             'password' => bcrypt('123456789'),
-            'UserType' => '4',
+            'UserType' => '0',
         ]);
         User::create([
             'name' => 'Manuel Brito',
             'email' => 'pizza@gmail.com',
             'password' => bcrypt('123456789'),
-            'UserType' => '3',
+            'UserType' => '0',
         ]);
     }
 }

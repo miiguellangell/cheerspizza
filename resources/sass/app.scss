@@ -6,3 +6,40 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+body{
+    background-color: #441110;
+}
+
+.card{
+    background-color: #00000034;
+} 
+
+.card-header{
+    color:white;
+}
+
+.card-body{
+    color:white;
+}
+.card-body a{
+    color:white;
+}
+
+.btn-primary{
+    background-color: white;
+    color:black;
+}
+.navbar{
+    background-color: #350F0E;
+
+}
+
+#navbarDropdown{
+    color:white;
+}
+
+.logo-header{
+    width: 120px;
+    height: auto;
+}

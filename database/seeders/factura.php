@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\factura;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -12,7 +13,7 @@ class facturas extends Seeder
      */
     public function run(): void
     {
-        Factura::create([
+        factura::create([
             'NumeroDeFactura' => '12345689',
             'IdCliente' => '2',
             'NombreDeCliente' => 'Juan Perez',
@@ -23,7 +24,7 @@ class facturas extends Seeder
             'PuntosDeFactura'=>'4'         
         ]);
 
-        Factura::create([
+        factura::create([
             'NumeroDeFactura' => '99999999',
             'IdCliente' => '3',
             'NombreDeCliente' => 'Maria Lopez',
@@ -34,7 +35,7 @@ class facturas extends Seeder
             'PuntosDeFactura'=>'4'         
         ]);
 
-        Factura::create([
+        factura::create([
             'NumeroDeFactura' => '50505050',
             'IdCliente' => '4',
             'NombreDeCliente' => 'Manuel Brito',

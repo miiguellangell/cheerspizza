@@ -14,7 +14,7 @@ class FacturasController extends Controller
      */
     public function index()
     {
-        return view('admin.index', [
+        return view('admin.facturas.index', [
             'facturas' => facturas::latest()->paginate(3)
         ]);
     }
@@ -24,7 +24,7 @@ class FacturasController extends Controller
      */
     public function create()
     {
-        return view('facturas.create');
+        return view('admin.facturas.create');
     }
 
     /**

@@ -37,3 +37,122 @@ app.component('example-component', ExampleComponent);
  */
 
 app.mount('#app');
+
+
+$(document).ready(function () {
+    $('.btn-number').click(function(e){
+        e.preventDefault();
+        
+        var fieldName = $(this).attr('data-field');
+        var type = $(this).attr('data-type');
+        var input = $("input[name='"+fieldName+"']");
+        var currentVal = parseInt(input.val());
+        
+        if (!isNaN(currentVal)) {
+            if(type === 'minus') {
+                if(currentVal > parseInt(input.attr('min'))) {
+                    input.val(currentVal - 1).change();
+                }
+                if(currentVal - 1 == input.attr('min')) {
+                    $(this).attr('disabled', true);
+                }
+            } else if(type === 'plus') {
+                if(currentVal < parseInt(input.attr('max'))) {
+                    input.val(currentVal + 1).change();
+                }
+                if(currentVal + 1 == input.attr('max')) {
+                    $(this).attr('disabled', true);
+                }
+            }
+        } else {
+            input.val(input.attr('min'));
+        }
+    });
+    
+    $('.input-number').change(function() {
+        var minValue = parseInt($(this).attr('min'));
+        var maxValue = parseInt($(this).attr('max'));
+        var valueCurrent = parseInt($(this).val());
+        var name = $(this).attr('name');
+
+        if(valueCurrent >= minValue) {
+            $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled');
+        } else {
+            alert('Lo siento, se alcanzó el valor mínimo.');
+            $(this).val($(this).data('oldValue'));
+        }
+
+        if(valueCurrent <= maxValue) {
+            $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled');
+        } else {
+            alert('Lo siento, se alcanzó el valor máximo.');
+            $(this).val($(this).data('oldValue'));
+        }
+    });
+    
+    $(".input-number").focusin(function(){
+        $(this).data('oldValue', $(this).val());
+    });
+
+    $(".input-number").keydown(function (e) {
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+            (e.keyCode == 65 && e.ctrlKey === true) || 
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            return;
+        }
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+});
+
+
+$(document).ready(function () {
+    function updateResult() {
+        var peq = parseInt($("input[name='ProductoPeq']").val()) || 0;
+        var med = parseInt($("input[name='ProductoMed']").val()) || 0;
+        var gra = parseInt($("input[name='ProductoGra']").val()) || 0;
+        
+        var total = (peq * 1000) + (med * 2000) + (gra * 3000);
+        $("input[name='Resultado']").val(total);
+    }
+    
+    // Actualiza el resultado inicialmente
+    updateResult();
+
+    $('.btn-number').click(function(e) {
+        e.preventDefault();
+        updateResult();
+    });
+    
+    $('.input-number').change(function() {
+        updateResult();
+    });
+    
+    // El resto de tu script de manejo de botones y campos de entrada...
+});
+
+
+function getDate() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+  
+    if(dd<10) {
+        dd = '0'+dd
+    } 
+  
+    if(mm<10) {
+        mm = '0'+mm
+    } 
+  
+    today = yyyy + '/' + mm + '/' + dd;
+    console.log(today);
+    document.getElementById("date").value = today;
+  }
+  
+  
+  window.onload = function() {
+    getDate();
+  };

@@ -11,7 +11,7 @@
                     <h1>AÑADIR NUEVA FACTURA</h1>
                 </div>
                 <div class="float-end">
-                    <a href="{{ route('facturas.index') }}" class="btn btn-primary btn-sm">&larr; Volver </a>
+                    <a style="font-size:15px;" href="{{ route('facturas.index') }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-backward"></i> Volver </a>
                 </div>
             </div>
             <div class="card-body">
@@ -21,9 +21,9 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa-solid fa-hashtag fa-xl"></i></span>
                     </div>
-                    <input placeholder="Ingresa el numero de factura" type="text" class="form-control @error('code') is-invalid @enderror" id="code" name="code" value="{{ old('code') }}">
-                         @if ($errors->has('code'))
-                        <span class="text-danger">{{ $errors->first('code') }}</span>
+                    <input placeholder="Ingresa el numero de factura" type="text" class="form-control @error('code') is-invalid @enderror" id="NumeroDeFactura" name="NumeroDeFactura" value="{{ old('NumeroDeFactura') }}">
+                         @if ($errors->has('NumeroDeFactura'))
+                        <span class="text-danger">{{ $errors->first('NumeroDeFactura') }}</span>
                     @endif
                     </div> 
 
@@ -31,9 +31,19 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa-regular fa-user fa-xl"></i> </span>
                     </div>
-                    <input  placeholder="Selecciona un cliente"  type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
-                                        @if ($errors->has('name'))
-                                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                    <input  placeholder="Selecciona un cliente"  type="text" class="form-control @error('NombreDeCliente') is-invalid @enderror" id="NombreDeCliente" name="NombreDeCliente" value="{{ old('NombreDeCliente') }}">
+                                        @if ($errors->has('NombreDeCliente'))
+                                            <span class="text-danger">{{ $errors->first('NombreDeCliente') }}</span>
+                                        @endif
+                </div> 
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa-regular fa-user fa-xl"></i> </span>
+                    </div>
+                    <input  placeholder="Numero de cliente"  type="text" class="form-control @error('NombreDeCliente') is-invalid @enderror" id="NombreDeCliente" name="NombreDeCliente" value="{{ old('NombreDeCliente') }}">
+                                        @if ($errors->has('NombreDeCliente'))
+                                            <span class="text-danger">{{ $errors->first('NombreDeCliente') }}</span>
                                         @endif
                 </div> 
                 
@@ -41,22 +51,22 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa-regular fa-calendar-days fa-xl"></i> </span>
                     </div>  
-                    <input placeholder="Fecha de Compra"  type="text" class="form-control @error('quantity') is-invalid @enderror" id="quantity" name="quantity" value="{{ old('quantity') }}" onblur="(this.type='text')" onfocus="(this.type='date')" >
-                                        @if ($errors->has('quantity'))
-                                            <span class="text-danger">{{ $errors->first('quantity') }}</span>
+                    <input placeholder="Fecha de Compra"  type="text" class="form-control @error('FechaDeCarga') is-invalid @enderror" id="FechaDeCarga" name="FechaDeCarga" value="{{ old('FechaDeCarga') }}" onblur="(this.type='text')" onfocus="(this.type='date')" >
+                                        @if ($errors->has('FechaDeCarga'))
+                                            <span class="text-danger">{{ $errors->first('FechaDeCarga') }}</span>
                                         @endif
                 </div>    
                 
                 <div class="center">                 
                     <div class="input-group numberinput one">  
-                        <div class="label"><span>hola</span></div>
+                        <div class="label"><span>Pizzas Pequeñas y/o personales</span></div>
                             <div class="counter">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-danger btn-number minus"  data-type="minus" data-field="ProductoPeq">
                                     <span class="glyphicon glyphicon-minus"><i class="fa-solid fa-minus fa-xl"></i></span>
                                 </button>
                             </span>
-                            <input type="text" name="ProductoPeq" class="form-control input-number" value="0" min="0" max="100" disabled>
+                            <input type="text" name="ProductoPeq" class="form-control input-number" value="0" max="100"  min="0" disabled>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-success btn-number plus" data-type="plus" data-field="ProductoPeq">
                                     <span class="glyphicon glyphicon-plus"><i class="fa-solid fa-plus fa-xl"></i></span>
@@ -66,7 +76,7 @@
                     </div>
 
                     <div class="input-group numberinput two">  
-                        <div class="label"><span>hola</span></div>
+                        <div class="label"><span>Pizzas medianas</span></div>
                             <div class="counter">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-danger btn-number minus"  data-type="minus" data-field="ProductoMed">
@@ -83,7 +93,7 @@
                     </div>
 
                     <div class="input-group numberinput three">  
-                        <div class="label"><span>hola</span></div>
+                        <div class="label"><span>Pizzas grandes</span></div>
                             <div class="counter">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-danger btn-number minus"  data-type="minus" data-field="ProductoGra">
@@ -100,16 +110,16 @@
                     </div>
 
                     <div class="input-group numberinput four">  
-                        <div class="label"><span>hola</span></div>
+                        <div class="label"><span>Puntos totales</span></div>
                             <div class="counter">
                                 </button>
                             </span>
-                            <input type="text" name="Resultado" class="form-control input-number resultado" value="0" min="0"  disabled>                          
+                            <input type="text" name="PuntosDeFactura" class="form-control input-number PuntosDeFactura" value="0" min="0"  disabled>                          
                         </div>
                     </div>
                     </div>                            
                 <div class="buttonform">
-                        <button type="submit" class="offset-md-5 btn btn-primary submitbill"><i class="fa-solid fa-plus fa-xl"></i> AÑADIR FACTURA</button>
+                        <button style="font-size:14px !important" type="submit" class="offset-md-5 btn btn-primary submitbill"><i class="fa-solid fa-plus fa-xl"></i> AÑADIR FACTURA</button>
 
                     </div>                   
                 </form>

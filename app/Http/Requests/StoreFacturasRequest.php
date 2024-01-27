@@ -11,7 +11,7 @@ class StoreFacturasRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class StoreFacturasRequest extends FormRequest
         return [
 
             'NumeroDeFactura' => 'required|string|max:50|unique:facturas,NumeroDeFactura',
-            'IdCliente' => '2''required|numeric|max:250',
+            'IdCliente' => 'required|numeric|max:250',
             'NombreDeCliente' => 'required|string|max:250',
             'FechaDeCarga' => 'required',
             'ProductoPeq'  =>'required|numeric', 

@@ -114,7 +114,7 @@ $(document).ready(function () {
         var gra = parseInt($("input[name='ProductoGra']").val()) || 0;
         
         var total = (peq * 1000) + (med * 2000) + (gra * 3000);
-        $("input[name='Resultado']").val(total);
+        $("input[name='PuntosDeFactura']").val(total);
     }
     
     // Actualiza el resultado inicialmente

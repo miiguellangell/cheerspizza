@@ -30,7 +30,7 @@ class FacturasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorefacturaRequest $request) : RedirectResponse
+    public function store(StorefacturasRequest $request) : RedirectResponse
     {
         factura::create($request->all());
         return redirect()->route('facturas.index')

@@ -1,15 +1,15 @@
 // Fonts
 @font-face {
-    font-family: NewZen-Bolds;
-    src: url("{{ asset('public/fuentes/NewZen-Bold.ttf') }}");
+    font-family: 'Belanosima';
+    @import url('https://fonts.cdnfonts.com/css/belanosima?styles=170136');
 }
   
   body {
-    font-family: 'NewZen-Bolds','arial';
+    font-family: 'Belanosima';
   }
 
-  h1,h2,h3,h4,p,.label,input, button, select, optgroup, textarea,button,a  {
-    font-family: 'NewZen-Bolds','arial' !important;
+  h1,h2,h3,h4,p,.label,input, button, select, optgroup, textarea  {
+    font-family: 'Belanosima', sans-serif !important;
   }
 
 // Variables
@@ -129,6 +129,20 @@ thead, tbody, tfoot, tr, td, th {
         margin-bottom: 2px;
         width: 100%
     }
+
+    .logo-header{
+        width: 80px;
+        height: auto;
+        margin-bottom: 0px;
+        background-color:#441110 ;
+        border-radius: 25px;
+        -webkit-box-shadow: 2px 9px 16px 0px rgba(0,0,0,0.36);
+        -moz-box-shadow: 2px 9px 16px 0px rgba(0,0,0,0.36);
+        box-shadow: 2px 9px 16px 0px rgba(0,0,0,0.36);
+        padding: 10px;
+    }
+    .nav-link {
+        text-align: end !important;}
   }
 
 .nav-link,.nav-item{
@@ -277,8 +291,8 @@ thead, tbody, tfoot, tr, td, th {
             text-align: center;
         }
 
-        .form-control.input-number.resultado {
-            background-color: #441110;
+        .form-control.input-number.PuntosDeFactura {
+            background-color: #441110 !important;
             color: white;
             width: 50%;
             margin: auto ;
@@ -286,10 +300,13 @@ thead, tbody, tfoot, tr, td, th {
 
         .submitbill{
             background-color: #589A6D !important;
+            font-size: 15px;
         }
 
         .buttonform{
             margin-bottom: 20px;
             margin-top: 20px;
             text-align: center;
+            font-size: 60px;
         }
+        

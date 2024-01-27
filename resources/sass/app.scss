@@ -1,15 +1,15 @@
 // Fonts
 @font-face {
     font-family: NewZen-Bolds;
-    src: url("{{ asset('fuentes/NewZen-Bold.ttf') }}");
+    src: url("{{ asset('public/fuentes/NewZen-Bold.ttf') }}");
 }
   
   body {
-    font-family: 'NewZen-Bolds';
+    font-family: 'NewZen-Bolds','arial';
   }
 
   h1,h2,h3,h4,p,.label,input, button, select, optgroup, textarea,button,a  {
-    font-family: 'NewZen-Bolds' !important;
+    font-family: 'NewZen-Bolds','arial' !important;
   }
 
 // Variables

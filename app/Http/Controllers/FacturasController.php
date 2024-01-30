@@ -30,9 +30,9 @@ class FacturasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorefacturasRequest $request) : RedirectResponse
+    public function store(StoreFacturasRequest $request) : RedirectResponse
     {
-        factura::create($request->all());
+        Facturas::create($request->all());
         return redirect()->route('facturas.index')
                 ->withSuccess('Se ha añadido una nueva factura.');
     }
@@ -40,7 +40,7 @@ class FacturasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(factura $factura) : View
+    public function show(facturas $factura) : View
     {
         return view('facturas.show', [
             'factura' => $factura
@@ -58,7 +58,7 @@ class FacturasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatefacturaRequest $request, factura $factura) : RedirectResponse
+    public function update(UpdateFacturasRequest $request, factura $factura) : RedirectResponse
     {
         $factura->update($request->all());
         return redirect()->back()
@@ -68,7 +68,7 @@ class FacturasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(factura $factura) : RedirectResponse
+    public function destroy(facturas $factura) : RedirectResponse
     {
         $factura->delete();
         return redirect()->route('facturas.index')

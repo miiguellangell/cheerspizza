@@ -18,6 +18,7 @@
                 <table class="table table-striped table-bordered">
                     <thead>
                       <tr>
+                      <th class="tableh" scope="col">#</th>
                         <th class="tableh" scope="col">N Factura</th>
                         <th class="tableh" scope="col">Nombre de cliente</th>
                         <th class="tableh" scope="col">Productos Peq</th>
@@ -31,6 +32,7 @@
                         @forelse ($facturas as $factura)
                         <tr>
                             <th class="tableb" scope="row">{{ $loop->iteration }}</th>
+                            <td class="tableb"> {{ $factura->NumeroDeFactura }}</td>
                             <td class="tableb"> {{ $factura->NombreDeCliente }}</td>
                             <td class="tableb">{{ $factura->ProductoPeq }}</td>
                             <td class="tableb">{{ $factura->ProductoMed }}</td>

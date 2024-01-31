@@ -10,12 +10,13 @@ class Facturas extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'NumeroDeFactura',
         'IdCliente',
         'NombreDeCliente',
         'FechaDeCarga',
         'ProductoPeq',
-        'Productomed',
+        'ProductoMed',
         'ProductoGra',
         'PuntosDeFactura'    
     ];

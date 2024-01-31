@@ -11,7 +11,7 @@ class UpdateFacturasRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,12 +22,13 @@ class UpdateFacturasRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'NumeroDeFactura' => 'required|string|max:50|unique:facturas,NumeroDeFactura'.$this->factura->id,,
-            'IdCliente' => '2''required|numeric|max:250',
+           
+            'NumeroDeFactura' => 'required|string|max:50|',
+            'IdCliente' => 'required|numeric',
             'NombreDeCliente' => 'required|string|max:250',
             'FechaDeCarga' => 'required',
             'ProductoPeq'  =>'required|numeric', 
-            'Productomed'  =>'required|numeric',
+            'ProductoMed'  =>'required|numeric',
             'ProductoGra'  =>'required|numeric',
             'PuntosDeFactura'=>'required|numeric'  
         ];

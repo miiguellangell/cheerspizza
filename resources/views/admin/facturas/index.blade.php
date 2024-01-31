@@ -11,7 +11,7 @@
             </div>
         @endif
 
-        <div class="card">
+        <div class="index card ">
             <div class="card-header"><h1>LISTADO DE FACTURAS</h1></div>
             <div class="card-body">
                 <a href="{{ route('facturas.create') }}" class="btn btn-success btn-sm my-2"><i class="fa-solid fa-square-plus"></i> AGREGAR NUEVA FACTURA</a>
@@ -44,7 +44,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <div class="actions">
-                                    <a href="{{ route('facturas.show', $factura->id) }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-eye"></i>  MOSTRAR</a>
+                                    <a href="{{ route('facturas.show', $factura->id) }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-eye"></i>  MOSTRAR</a> 
 
                                     <a href="{{ route('facturas.edit', $factura->id) }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-pencil"></i> EDITAR</a>   
 

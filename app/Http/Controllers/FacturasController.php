@@ -15,7 +15,7 @@ class FacturasController extends Controller
     public function index()
     {
         return view('admin.facturas.index', [
-            'facturas' => facturas::latest()->paginate(3)
+            'facturas' => facturas::latest()->paginate(10)
         ]);
     }
 
@@ -32,7 +32,8 @@ class FacturasController extends Controller
      */
     public function store(StoreFacturasRequest $request) : RedirectResponse
     {
-        Facturas::create($request->all());
+        
+        facturas::create($request->all());
         return redirect()->route('facturas.index')
                 ->withSuccess('Se ha añadido una nueva factura.');
     }
@@ -50,20 +51,23 @@ class FacturasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Facturas $facturas)
+    public function edit(facturas $factura) 
     {
-        //
+        return view('admin.facturas.edit', [
+            'facturas' => $factura
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFacturasRequest $request, factura $factura) : RedirectResponse
+    public function update(UpdateFacturasRequest $request, facturas $factura) : RedirectResponse
     {
         $factura->update($request->all());
         return redirect()->back()
                 ->withSuccess('La factura se actualizo correctamente.');
     }
+
 
     /**
      * Remove the specified resource from storage.

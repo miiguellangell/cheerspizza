@@ -73,9 +73,11 @@ class FacturasController extends Controller
      */
     public function edit(facturas $factura) 
     {
-        return view('admin.facturas.edit', [
-            'factura' => $factura
-        ]);
+        // Obtener todos los usuarios
+        $users = User::all();
+    
+        // Pasar tanto la factura como los usuarios a la vista
+        return view('admin.facturas.edit', compact('factura', 'users'));
     }
 
     /**

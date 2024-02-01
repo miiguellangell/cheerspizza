@@ -42,19 +42,22 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(user $users) :view
+    public function show(User $user)
     {
-        return view('admin.users.show', [
-            'user' => $users
-        ]);
+        // Cargando las facturas directamente a través de la relación
+        // No es necesario el 'get()' si solo pasas la relación a la vista
+        $facturas = $user->facturas;
+    
+        return view('admin.users.show', compact('user', 'facturas'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(user $users)
     {
-        return view('admin.users.edit', [
+        return view('admin.users.list', [
             'user' => $users
         ]);
     }
@@ -67,13 +70,24 @@ class UserController extends Controller
         //
     }
 
+    public function showFacturas(User $user)
+{
+    $facturas = $user->facturas;
+
+    return view('admin.users.facturas', compact('user', 'facturas'));
+}
+
     
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+public function destroy(User $user)
+{
+    // Eliminación del usuario
+    $user->delete();
+
+    // Redirección con mensaje de éxito
+    return back()->with('success', 'Usuario eliminado exitosamente.');
+}
 }

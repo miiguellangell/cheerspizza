@@ -43,11 +43,11 @@
                                     @csrf
                                     @method('DELETE')
                                     <div class="actions">
-                                    <a href="{{ route('clientes.show', $user->id) }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-eye"></i>  MOSTRAR</a> 
+                                    <a href="{{ route('clientes.show', $user->id) }}" class="btn btn-warning btn-sm" title="Ver cliente"> <i class="fa-solid fa-eye"></i> </a> 
 
-                                    <a href="{{ route('clientes.edit', $user->id) }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-pencil"></i> EDITAR</a>   
+                                    <a href="{{ route('clientes.facturas', $user->id) }}" class="btn btn-primary btn-sm" title="Ver Facturas"><i class="fa-solid fa-file"></i> </a>
 
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Seguro que quiere borrar esta factura?');"><i class="fa-solid fa-trash"></i> BORRAR</button>
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Seguro que quiere borrar esta factura?');" title="Eliminar cliente"><i class="fa-solid fa-trash"></i> </button>
                                     </div>
                                 </form>
                             </td>

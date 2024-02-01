@@ -24,13 +24,12 @@ class StoreFacturasRequest extends FormRequest
         return [
 
             'NumeroDeFactura' => 'required|string|max:50|unique:facturas,NumeroDeFactura',
-            'IdCliente' => 'required|numeric',
-            'NombreDeCliente' => 'required|string|max:250',
+            'user_id' => 'required|exists:users,id',
             'FechaDeCarga' => 'required',
             'ProductoPeq'  =>'required|numeric', 
             'ProductoMed'  =>'required|numeric',
             'ProductoGra'  =>'required|numeric',
-            'PuntosDeFactura'=>'required|numeric'     
+            'PuntosDeFactura'=>'required|numeric'   
         ];
     }
 }

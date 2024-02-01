@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'telefono'
     ];
 
     /**
@@ -42,4 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function facturas()
+    {
+        return $this->hasMany(Facturas::class); // Asegúrate de que el nombre de la clase coincida con tu modelo de factura
+    }
+    
 }

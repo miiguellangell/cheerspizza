@@ -24,8 +24,7 @@ class UpdateFacturasRequest extends FormRequest
         return [
            
             'NumeroDeFactura' => 'required|string|max:50|',
-            'IdCliente' => 'required|numeric',
-            'NombreDeCliente' => 'required|string|max:250',
+            'user_id' => 'required|exists:users,id',
             'FechaDeCarga' => 'required',
             'ProductoPeq'  =>'required|numeric', 
             'ProductoMed'  =>'required|numeric',

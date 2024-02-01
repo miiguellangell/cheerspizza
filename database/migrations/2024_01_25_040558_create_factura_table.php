@@ -14,7 +14,6 @@ return new class extends Migration
        Schema::create('facturas', function (Blueprint $table) {
             $table->id();     
             $table->string('NumeroDeFactura');
-            $table->String('IdCliente');
             $table->string('NombreDeCliente');
             $table->date('FechaDeCarga');
             $table->integer('ProductoPeq')->default(0);

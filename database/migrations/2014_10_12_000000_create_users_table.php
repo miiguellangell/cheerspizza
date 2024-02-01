@@ -16,6 +16,8 @@ return new class extends Migration
             $table->boolean('UserType')->default(0);
             $table->string('name');
             $table->string('email')->unique();
+            $table->bigInteger('telefono');
+            $table->bigInteger('FacturasCargadas')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

@@ -15,8 +15,7 @@ class facturas extends Seeder
     {
         factura::create([
             'NumeroDeFactura' => '12345689',
-            'IdCliente' => '2',
-            'NombreDeCliente' => 'Juan Perez',
+            'user_id'=> '1',
             'FechaDeCarga' => '2024-01-24',
             'ProductoPeq'  =>'2',
             'Productomed'  =>'1',
@@ -26,8 +25,7 @@ class facturas extends Seeder
 
         factura::create([
             'NumeroDeFactura' => '99999999',
-            'IdCliente' => '3',
-            'NombreDeCliente' => 'Maria Lopez',
+            'user_id'=> '2',
             'FechaDeCarga' => '2024-01-24',
             'ProductoPeq'  =>'1',
             'Productomed'  =>'0',
@@ -37,8 +35,7 @@ class facturas extends Seeder
 
         factura::create([
             'NumeroDeFactura' => '50505050',
-            'IdCliente' => '4',
-            'NombreDeCliente' => 'Manuel Brito',
+            'user_id'=> '3',
             'FechaDeCarga' => '2024-01-24',
             'ProductoPeq'  =>'0',
             'Productomed'  =>'0',

@@ -31,20 +31,25 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa-regular fa-user fa-xl"></i> </span>
                     </div>
-
-                    <select class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id" value="{{ old('user_id') }}">>
-                    <option value="" disabled selected>Seleccione un cliente</option>
-                                    @foreach ($users as $user)                                  
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
-                       </select>
+                    <input  placeholder="Selecciona un cliente"  type="text" class="form-control @error('NombreDeCliente') is-invalid @enderror" id="NombreDeCliente" name="NombreDeCliente" value="{{ old('NombreDeCliente') }}">
                 </div> 
                 <div>
-                    @if ($errors->has('user_id'))
-                        <span class="text-danger">{{ $errors->first('user_id') }}</span>
+                    @if ($errors->has('NombreDeCliente'))
+                        <span class="text-danger">{{ $errors->first('NombreDeCliente') }}</span>
                     @endif
                 </div>
 
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa-regular fa-user fa-xl"></i> </span>
+                    </div>
+                    <input  placeholder="Numero de cliente"  type="text" class="form-control @error('IdCliente') is-invalid @enderror" id="IdCliente" name="IdCliente" value="{{ old('IdCliente') }}">                                     
+                </div> 
+                <div>
+                @if ($errors->has('IdCliente'))
+                        <span class="text-danger">{{ $errors->first('IdCliente') }}</span>
+                @endif
+                </div>
                 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">

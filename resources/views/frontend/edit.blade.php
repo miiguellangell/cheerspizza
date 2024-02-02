@@ -24,7 +24,8 @@
             <form action="{{ route('facturas.update', $factura->id) }}" method="post">
                     @csrf
                     @method("PUT")
-                    
+
+
                     <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa-solid fa-hashtag fa-xl"></i></span>
@@ -66,6 +67,7 @@
                         <span class="input-group-text"> <i class="fa-regular fa-calendar-days fa-xl"></i> </span>
                     </div>  
                     <input placeholder="Fecha de Compra" type="text" class="form-control @error('FechaDeCarga') is-invalid @enderror" id="FechaDeCarga" name="FechaDeCarga" value="{{ old('FechaDeCarga', $factura->FechaDeCarga ?? '') }}" onfocus="(this.type='date');this.min='2024-02-01';this.max='2024-12-31';" onblur="(this.type='text')" >
+
                                         
                 </div>    
                 <div>

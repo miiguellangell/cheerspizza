@@ -61,9 +61,15 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <!-- Verificación del UserType para mostrar enlaces solo a administradores -->
+                                    @if(Auth::user()->UserType == 1)
+                                        <a class="dropdown-item" href="{{ route('facturas.index') }}">Facturas</a>
+                                        <a class="dropdown-item" href="{{ route('clientes.index') }}">Clientes</a>
+                                    @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -73,6 +79,7 @@
                                 </div>
                             </li>
                         @endguest
+
                     </ul>
                 </div>
             </div>

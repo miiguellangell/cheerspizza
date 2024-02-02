@@ -5,15 +5,17 @@
 <div class="row justify-content-center mt-3">
     <div class="col-md-12">
 
+        <div class="index card ">
+
         @if ($message = Session::get('success'))
             <div class="alert alert-success" role="alert">
                 {{ $message }}
             </div>
         @endif
 
-        <div class="index card ">
             <div class="card-header"><h1>LISTADO DE PARTICIPANTES</h1></div>
             <div class="card-body">
+                
             <a href="{{ route('clientes.create') }}" class="btn btn-success btn-sm my-2"><i class="fa-solid fa-square-plus"></i> Agregar nuevo participante</a>
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -39,17 +41,9 @@
 
 
                             <td class="tableb">
-                                <form action="{{ route('clientes.destroy', $user->id) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <div class="actions">
-                                    <a href="{{ route('clientes.show', $user->id) }}" class="btn btn-warning btn-sm" title="Ver cliente"> <i class="fa-solid fa-eye"></i> </a> 
 
-                                    <a href="{{ route('clientes.facturas', $user->id) }}" class="btn btn-primary btn-sm" title="Ver Facturas"><i class="fa-solid fa-file"></i> </a>
-
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Seguro que quiere borrar esta factura?');" title="Eliminar cliente"><i class="fa-solid fa-trash"></i> </button>
-                                    </div>
-                                </form>
+                            <a href="{{ route('frontend.profile', $user->id) }}" class="btn btn-warning btn-sm"> <i class="fa-solid fa-eye"></i> Ver Perfil</a>
+                               
                             </td>
                         </tr>
                         @empty

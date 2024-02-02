@@ -32,7 +32,7 @@
                         <span class="input-group-text"> <i class="fa-regular fa-user fa-xl"></i> </span>
                     </div>
 
-                    <select class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id" value="{{ old('user_id') }}">>
+                    <select class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id" value="{{ old('user_id') }}" >
                     <option value="" disabled selected>Seleccione un cliente</option>
                                     @foreach ($users as $user)                                  
                                         <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -50,7 +50,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa-regular fa-calendar-days fa-xl"></i> </span>
                     </div>  
-                    <input placeholder="Fecha de Compra"  type="text" class="form-control @error('FechaDeCarga') is-invalid @enderror" id="FechaDeCarga" name="FechaDeCarga" value="{{ old('FechaDeCarga') }}" onblur="(this.type='text')" onfocus="(this.type='date')" >
+                    <input placeholder="Fecha de Compra" type="text" class="form-control @error('FechaDeCarga') is-invalid @enderror" id="FechaDeCarga" name="FechaDeCarga" value="{{ old('FechaDeCarga', $factura->FechaDeCarga ?? '') }}" onfocus="(this.type='date');this.min='2024-02-01';this.max='2024-12-31';" onblur="(this.type='text')" >
                                         
                 </div>    
                 <div>

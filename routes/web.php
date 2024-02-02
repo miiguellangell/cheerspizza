@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FacturasController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SettingsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,16 +16,24 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.profile');
 });
+
+
+Route::put('/settings', [SettingsController::class, 'update'])->name('admin.settings.update');
+
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [UserController::class, 'profile'])->middleware('auth')->name('home'); 
+
 
 
 Route::resource('facturas', FacturasController::class); 
 Route::resource('clientes', UserController::class); 
+Route::get('/users/{user}/profile', [UserController::class, 'profile'])->name('frontend.profile');
+
 
 
 

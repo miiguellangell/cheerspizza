@@ -5,55 +5,44 @@
 <div class="row justify-content-center mt-3">
     <div class="col-md-8">
 
-    @if ($message = Session::get('success'))
-            <div class="alert alert-success" role="alert">
-                {{ $message }}
-            </div>
-        @endif
-
         <div class="card">
             <div class="card-header">
                 <div class="float-start">
-                    <h1>EDITAR FACTURA</h1>
+                    <h1>AÑADIR NUEVA FACTURA</h1>
                 </div>
                 <div class="float-end">
-                    <a style="font-size:15px;"  href="{{ route('facturas.index') }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-backward"></i> Volver </a>
+                    <a style="font-size:15px;" href="/" class="btn btn-primary btn-sm"><i class="fa-solid fa-backward"></i> Volver </a>
                 </div>
             </div>
             <div class="card-body">
-            <form action="{{ route('facturas.update', $factura->id) }}" method="post">
+            <form action="{{ route('facturas.store') }}" method="post">
                     @csrf
-                    @method("PUT")
-                    
-                    <div class="form-group input-group">
+                <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa-solid fa-hashtag fa-xl"></i></span>
                     </div>
-                    <input readonly placeholder="Ingresa el numero de factura" type="text" class="form-control @error('NumeroDeFactura') is-invalid @enderror" id="NumeroDeFactura" name="NumeroDeFactura" value="{{ $factura->NumeroDeFactura }}">
+                    <input placeholder="Ingresa el numero de factura" type="text" class="form-control @error('NumeroDeFactura') is-invalid @enderror" id="NumeroDeFactura" name="NumeroDeFactura" value="{{ old('NumeroDeFactura') }}">
                     </div> 
                     @if ($errors->has('NumeroDeFactura'))
                        <div> <span class="text-danger">{{ $errors->first('NumeroDeFactura') }}</span></div>
                     @endif
-
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa-regular fa-user fa-xl"></i> </span>
                     </div>
 
-                    <select class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id">
-                        <option value="" disabled>Seleccione un cliente</option>
-                        @if ($factura->user)
-                            <option value="{{ $factura->user->id }}" selected>{{ $factura->user->name }}</option>
-                        @endif
-                        @foreach ($users as $usuario)
-                            @if (!$factura->user || $factura->user->id !== $usuario->id)
-                                <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
-                            @endif
-                        @endforeach
-                    </select>
+                    @php
+                    $user = Auth::user(); // Obtiene el usuario autenticado
+                    @endphp
 
-                </div> 
+                    <!-- Campo oculto para enviar el ID del usuario -->
+                    <input type="hidden" name="user_id" value="{{ $user->id }}">
+
+                    <!-- Campo de texto de solo lectura para mostrar el nombre del usuario -->
+                    <input type="text" readonly class="form-control" value="{{ $user->name }}" placeholder="Nombre del Usuario">
+
+                    </div> 
                 <div>
                     @if ($errors->has('user_id'))
                         <span class="text-danger">{{ $errors->first('user_id') }}</span>
@@ -83,7 +72,7 @@
                                     <span class="glyphicon glyphicon-minus"><i class="fa-solid fa-minus fa-xl"></i></span>
                                 </button>
                             </span>
-                            <input type="text" name="ProductoPeq" class="form-control input-number"  max="100"  min="0"  readonly value="{{ $factura->ProductoPeq }}"> 
+                            <input type="text" name="ProductoPeq" class="form-control input-number" value="0" max="100"  min="0"  readonly>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-success btn-number plus" data-type="plus" data-field="ProductoPeq">
                                     <span class="glyphicon glyphicon-plus"><i class="fa-solid fa-plus fa-xl"></i></span>
@@ -100,7 +89,7 @@
                                     <span class="glyphicon glyphicon-minus"><i class="fa-solid fa-minus fa-xl"></i></span>
                                 </button>
                             </span>
-                            <input type="text" name="ProductoMed" class="form-control input-number"  min="0" max="100"  readonly value="{{ $factura->ProductoMed }}">
+                            <input type="text" name="ProductoMed" class="form-control input-number" value="0" min="0" max="100"  readonly>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-success btn-number plus" data-type="plus" data-field="ProductoMed">
                                     <span class="glyphicon glyphicon-plus"><i class="fa-solid fa-plus fa-xl"></i></span>
@@ -117,7 +106,7 @@
                                     <span class="glyphicon glyphicon-minus"><i class="fa-solid fa-minus fa-xl"></i></span>
                                 </button>
                             </span>
-                            <input type="text" name="ProductoGra" class="form-control input-number" min="0" max="100"  readonly value="{{ $factura->ProductoGra }}">
+                            <input type="text" name="ProductoGra" class="form-control input-number" value="0" min="0" max="100"  readonly>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-success btn-number plus" data-type="plus" data-field="ProductoGra">
                                     <span class="glyphicon glyphicon-plus"><i class="fa-solid fa-plus fa-xl"></i></span>
@@ -131,12 +120,12 @@
                             <div class="counter">
                                 </button>
                             </span>
-                            <input type="text" name="PuntosDeFactura" class="form-control input-number PuntosDeFactura"  min="0"   readonly value="{{ $factura->PuntosDeFactura }}">                          
+                            <input type="text" name="PuntosDeFactura" class="form-control input-number PuntosDeFactura" value="0" min="0"   readonly>                          
                         </div>
                     </div>
                     </div>                            
                 <div class="buttonform">
-                        <button style="font-size:14px !important" type="submit" class="offset-md-5 btn btn-primary submitbill"><i class="fa-solid fa-pencil"></i> ACTUALIZAR FACTURA</button>
+                        <button style="font-size:14px !important" type="submit" class="offset-md-5 btn btn-primary submitbill"><i class="fa-solid fa-plus fa-xl"></i> AÑADIR FACTURA</button>
 
                     </div>                   
                 </form>

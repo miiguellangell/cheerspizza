@@ -22,7 +22,7 @@ class SettingsController extends Controller
         // Asegura que $showWinners sea true solo si el valor de la configuración es '1'
         $showWinners = $setting && $setting->value == '1';
    
-        return view('admin\setttings\update', compact('showWinners'));
+        return view('admin.setttings.update', compact('showWinners'));
     }
 
 }

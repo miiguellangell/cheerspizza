@@ -11,7 +11,15 @@
                     Factura #  {{ $factura->NumeroDeFactura }}
                 </div>
                 <div class="float-end">
+                
+
+                @if(Auth::user()->UserType == 1)
                 <a style="font-size:15px;"  href="{{ route('facturas.index') }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-backward"></i> Volver </a>
+                @else
+                <a style="font-size:15px;"  href="/" class="btn btn-primary btn-sm"><i class="fa-solid fa-backward"></i> Volver </a>
+                @endif
+
+                
                 </div>
             </div>
             <div class="card-body">
@@ -31,7 +39,7 @@
                     </div>
 
                     <div class="row">
-                        <label for="quantity" class="col-md-4 col-form-label text-md-end text-start"><strong>Pizzas peq y/o Personal:</strong></label>
+                        <label for="quantity" class="col-md-4 col-form-label text-md-end text-start"><strong>Pizzas pequeñas:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
                         {{ $factura->ProductoPeq }}
                         </div>

@@ -17,7 +17,11 @@
                     <h1>EDITAR FACTURA</h1>
                 </div>
                 <div class="float-end">
-                    <a style="font-size:15px;"  href="{{ route('facturas.index') }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-backward"></i> Volver </a>
+                @if(Auth::user()->UserType == 1)
+                <a style="font-size:15px;"  href="{{ route('facturas.index') }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-backward"></i> Volver </a>
+                @else
+                <a style="font-size:15px;"  href="/" class="btn btn-primary btn-sm"><i class="fa-solid fa-backward"></i> Volver </a>
+                @endif
                 </div>
             </div>
             <div class="card-body">
@@ -76,7 +80,7 @@
                 
                 <div class="center">                 
                     <div class="input-group numberinput one">  
-                        <div class="label"><span>Pizzas Pequeñas y/o personales</span></div>
+                        <div class="label"><span>Pizzas Pequeñas</span></div>
                             <div class="counter">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-danger btn-number minus"  data-type="minus" data-field="ProductoPeq">

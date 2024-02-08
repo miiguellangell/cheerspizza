@@ -57,14 +57,19 @@
                                     {{ __('Login') }}
                                 </button>
 
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                            <a href="{{ route('register') }}" style="color:black !important; background-color:white !important;" class="btn btn-primary"> No tienes usuario? Registrate.</a>
+                                    
+                                </button>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

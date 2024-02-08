@@ -16,6 +16,7 @@ class Facturas extends Model
         'user_id', // Asegúrate de que este campo esté en tu tabla facturas
         'FechaDeCarga',
         'ProductoPeq',
+        'PuntoDeVenta',
         'ProductoMed',
         'ProductoGra',
         'PuntosDeFactura'    

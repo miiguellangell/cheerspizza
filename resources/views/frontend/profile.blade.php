@@ -112,9 +112,6 @@ Te estaremos contactando en los próximos 8 días para concretar tu premio, así
     <div class="col">
     <a  style="place-self: center; padding:10px 10px 10px 10px" href="{{ route('facturas.create') }}" class="btn btn-success btn-sm my-2"><i class="fa-solid fa-square-plus"></i> AGREGAR NUEVA FACTURA</a>
     </div>
-    <div class="col">
-    
-    </div>
     <div style="background-color:#441110; color:white; border-style: solid; place-self: center; padding:10px 10px 10px 10px" class="col">
     <h5><b>PUNTOS ACUMULADOS</b><br> {{ $user->Acumulados }}</h5>
     </div>
@@ -124,14 +121,14 @@ Te estaremos contactando en los próximos 8 días para concretar tu premio, así
     <h4>Facturas cargadas</h4>
          <!-- Repetir este bloque para cada experiencia -->
          <div >
-         <table class="table table-striped table-bordered">
+         <table style="word-wrap: break-word;" class="table table-striped table-bordered">
                     <thead>
                       <tr>
                       <th class="tableh" scope="col">#</th>
-                        <th class="tableh nfactura" scope="col">N Factura</th>
-                        <th class="tableh ppeq" scope="col">Productos Peq</th>
-                        <th class="tableh pmed" scope="col">Productos Med</th>
-                        <th class="tableh pgra" scope="col">Productos Gra</th>
+                        <th class="tableh nfactura" scope="col">#Factura</th>
+                        <th class="tableh ppeq" scope="col">Pizzas Pequeñas</th>
+                        <th class="tableh pmed" scope="col">Pizzas Medianas</th>
+                        <th class="tableh pgra" scope="col">Pizzas Grandes</th>
                         <th class="tableh points" scope="col">Puntos</th>
                         <th class="tableh ops" scope="col">Opciones</th>
                       </tr>

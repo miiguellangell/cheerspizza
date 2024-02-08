@@ -65,6 +65,7 @@
                                     @if(Auth::user()->UserType == 1)
                                         <a class="dropdown-item" href="{{ route('facturas.index') }}">Facturas</a>
                                         <a class="dropdown-item" href="{{ route('clientes.index') }}">Clientes</a>
+                                        <a class="dropdown-item" href="/settings">Concluir</a>
                                     @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

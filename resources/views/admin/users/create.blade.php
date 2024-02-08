@@ -66,7 +66,7 @@
                 
                 <div class="center">                 
                     <div class="input-group numberinput one">  
-                        <div class="label"><span>Pizzas Pequeñas y/o personales</span></div>
+                        <div class="label"><span>Pizzas Pequeñas</span></div>
                             <div class="counter">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-danger btn-number minus"  data-type="minus" data-field="ProductoPeq">

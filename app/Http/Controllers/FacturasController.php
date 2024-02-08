@@ -17,6 +17,10 @@ class FacturasController extends Controller
      */
     public function index()
     {
+        if (!Auth::check()) {
+            // Si no hay usuario autenticado, redirige a la pantalla de login
+            return redirect()->route('login');
+        }
         if (Auth::user()->UserType == 0) {
             // Usuarios no administradores ven solo sus facturas
             $facturas = Facturas::where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(10);
@@ -70,6 +74,13 @@ class FacturasController extends Controller
         return redirect()->route('home')->withSuccess('Se ha añadido una nueva factura.');
         }
 
+    }
+
+    public function show(facturas $factura) : View
+    {
+        return view('admin.facturas.show', [
+            'factura' => $factura
+        ]);
     }
 
 public function edit(Facturas $factura)

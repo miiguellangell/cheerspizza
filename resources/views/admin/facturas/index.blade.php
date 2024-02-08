@@ -23,11 +23,11 @@
                     <thead>
                       <tr>
                       <th class="tableh" scope="col">#</th>
-                        <th class="tableh" scope="col">N Factura</th>
+                        <th class="tableh" scope="col">#Factura</th>
                         <th class="tableh" scope="col">Nombre de cliente</th>
-                        <th class="tableh" scope="col">Productos Peq</th>
-                        <th class="tableh" scope="col">Productos Med</th>
-                        <th class="tableh" scope="col">Productos Gra</th>
+                        <th class="tableh" scope="col">Pizzas Pequeñas</th>
+                        <th class="tableh" scope="col">Pizzas Medianas</th>
+                        <th class="tableh" scope="col">Pizzas Grandes</th>
                         <th class="tableh" scope="col">Puntos</th>
                         <th class="tableh" scope="col">Opciones</th>
                       </tr>

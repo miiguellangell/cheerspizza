@@ -26,10 +26,11 @@ class UpdateFacturasRequest extends FormRequest
             'NumeroDeFactura' => 'required|string|max:50|',
             'user_id' => 'required|exists:users,id',
             'FechaDeCarga' => 'required',
+            'PuntoDeVenta'=> 'required',
             'ProductoPeq'  =>'required|numeric', 
             'ProductoMed'  =>'required|numeric',
             'ProductoGra'  =>'required|numeric',
-            'PuntosDeFactura'=>'required|numeric'  
+            'PuntosDeFactura'=>'required|numeric|min:1000'  
         ];
     }
 }
